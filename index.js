@@ -2,6 +2,13 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./models/db");
 
+
+// swagger
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
+
+
+
 // load env variables
 dotenv.config();
 // connect DB
@@ -19,6 +26,12 @@ app.use("/api/user", User);
 app.use("/api/product", Product);
 app.use("/api/cart" , Cart);
 app.use("/api/order" , Order);
+
+// configure swagger
+app.use("/api-docs", 
+swaggerUi.serve, 
+swaggerUi.setup(swaggerDocument));
+
 
 // SETTIMG PORTS
 const PORT = process.env.PORT || 5000;

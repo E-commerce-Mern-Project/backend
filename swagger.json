@@ -1,0 +1,813 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Shop-with-us APIs",
+        "description": "Online Shopping Store",
+        "version": "1.0.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "tag": [
+        {
+            "name": "user",
+            "description": "Operations about user"
+        },
+        {
+            "name": "product",
+            "description": "Operations about product"
+        },
+        {
+            "name": "cart",
+            "description": "Operations about cart"
+        },
+        {
+            "name": "order",
+            "description": "Operations about order"
+        }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+
+    "paths": {
+        "/user/login":{
+            "post":{
+                "tags":["user"],
+                "summary":"Login",
+                "description":"Login",
+                "operationId":"login",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Login",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Login"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/LoginResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/user/register":{
+            "post":{
+                "tags":["user"],
+                "summary":"Register",
+                "description":"Register",
+                "operationId":"register",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Register",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Register"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/RegisterResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+            "/user/logout":{
+                "post":{
+                    "tags":["user"],
+                    "summary":"Logout",
+                    "description":"Logout",
+                    "operationId":"logout",
+                    "consumes": ["application/json"],
+                    "produces": ["application/json"],
+                    "parameters": [
+                        {
+                            "name": "body",
+                            "in": "body",
+                            "description": "Logout",
+                            "required": true,
+                            "schema": {
+                                "$ref": "#/definitions/Logout"
+                            }
+                        }
+                    ] ,
+                    "responses": {
+                        "200": {
+                            "description": "Successful operation",
+                            "schema": {
+                                "$ref": "#/definitions/LogoutResponse"
+                            }
+                        },
+                        "400": {
+                            "description": "Invalid username/password supplied"
+                        }
+                   }  
+            }
+        },     
+        "/user/getAUser":{
+            "post":{
+                "tags":["user"],
+                "summary":"Get A User",
+                "description":"Get A User",
+                "operationId":"getAUser",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get A User",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GetAUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetAUserResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/user/getUsersStats":{
+            "get":{
+                "tags":["user"],
+                "summary":"Get Users Stats",
+                "description":"Get Users Stats",
+                "operationId":"getUsersStats",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Users Stats",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GetUsersStats"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetUsersStatsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/user/getAllUsers":{
+            "get":{
+                "tags":["user"],
+                "summary":"Get All Users",
+                "description":"Get All Users",
+                "operationId":"getAllUsers",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get All Users",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GetAllUsers"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetAllUsersResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/user/updateUser":{
+            "post":{
+                "tags":["user"],
+                "summary":"Update User",
+                "description":"Update User",
+                "operationId":"updateUser",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update User",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateUserResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/user/deleteUser":{
+            "post":{
+                "tags":["user"],
+                "summary":"Delete User",
+                "description":"Delete User",
+                "operationId":"deleteUser",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Delete User",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DeleteUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteUserResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/product/getProduct":{
+            "post":{
+                "tags":["product"],
+                "summary":"Get Product",
+                "description":"Get Product",
+                "operationId":"getProduct",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GetProduct"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetProductResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/product/updateProduct":{
+            "post":{
+                "tags":["product"],
+                "summary":"Update Product",
+                "description":"Update Product",
+                "operationId":"updateProduct",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update Product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateProduct"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateProductResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/product/deleteProduct":{
+            "post":{
+                "tags":["product"],
+                "summary":"Delete Product",
+                "description":"Delete Product",
+                "operationId":"deleteProduct",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Delete Product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DeleteProduct"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteProductResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/product/createProduct":{
+            "post":{
+                "tags":["product"],
+                "summary":"Create Product",
+                "description":"Create Product",
+                "operationId":"createProduct",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Create Product",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CreateProduct"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/CreateProductResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        
+        "/product/getAllProducts":{
+            "post":{
+                "tags":["product"],
+                "summary":"Get All Products",
+                "description":"Get All Products",
+                "operationId":"getAllProducts",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get All Products",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GetAllProducts"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetAllProductsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+       
+        "/order/createOrder":{
+            "post":{
+                "tags":["order"],
+                "summary":"Create Order",
+                "description":"Create Order",
+                "operationId":"createOrder",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Create Order",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CreateOrder"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/CreateOrderResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        
+        "/order/getAllOrders":{
+            "post":{
+                "tags":["order"],
+                "summary":"Get All Orders",
+                "description":"Get All Orders",
+                "operationId":"getAllOrders",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get All Orders",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GetAllOrders"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetAllOrdersResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        
+        "/order/getOrder":{
+            "post":{
+                "tags":["order"],
+                "summary":"Get Order",
+                "description":"Get Order",
+                "operationId":"getOrder",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Order",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GetOrder"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetOrderResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+       
+        "/order/updateOrder":{
+            "post":{
+                "tags":["order"],
+                "summary":"Update Order",
+                "description":"Update Order",
+                "operationId":"updateOrder",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update Order",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateOrder"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateOrderResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        
+        "/order/deleteOrder":{
+            "post":{
+                "tags":["order"],
+                "summary":"Delete Order",
+                "description":"Delete Order",
+                "operationId":"deleteOrder",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Delete Order",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DeleteOrder"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteOrderResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        
+        "/order/monthlyIncome":{
+            "post":{
+                "tags":["order"],
+                "summary":"Monthly Income",
+                "description":"Monthly Income",
+                "operationId":"monthlyIncome",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Monthly Income",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MonthlyIncome"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/MonthlyIncomeResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+       
+        "/cart/createCart":{
+            "post":{
+                "tags":["cart"],
+                "summary":"Create Cart",
+                "description":"Create Cart",
+                "operationId":"createCart",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Create Cart",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CreateCart"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/CreateCartResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        
+        "/cart/getAllCarts":{
+            "post":{
+                "tags":["cart"],
+                "summary":"Get All Carts",
+                "description":"Get All Carts",
+                "operationId":"getAllCarts",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get All Carts",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GetAllCarts"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetAllCartsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        
+        "/cart/getCart":{
+            "post":{
+                "tags":["cart"],
+                "summary":"Get Cart",
+                "description":"Get Cart",
+                "operationId":"getCart",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Cart",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GetCart"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/GetCartResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+   
+        "/cart/updateCart":{
+            "post":{
+                "tags":["cart"],
+                "summary":"Update Cart",
+                "description":"Update Cart",
+                "operationId":"updateCart",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update Cart",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateCart"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/UpdateCartResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/cart/deleteCart":{
+            "post":{
+                "tags":["cart"],
+                "summary":"Delete Cart",
+                "description":"Delete Cart",
+                "operationId":"deleteCart",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Delete Cart",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DeleteCart"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/DeleteCartResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        }
+    }
+}   
