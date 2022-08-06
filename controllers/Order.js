@@ -1,7 +1,7 @@
 const Order = require('../models/Order');
+const router = require('../routes/Order');
 
 //create order 
-
 exports.createOrder = async (req,res,next)=>{
     try {
         const order = await Order.create(req.body);
