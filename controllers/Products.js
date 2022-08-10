@@ -10,7 +10,7 @@ exports.createProduct= async (req,res,next)=>{
             data:product
         })
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json(err.message);
     }
 }
 
