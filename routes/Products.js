@@ -14,7 +14,10 @@ router
 .route('/:id')
 .put(verifyTokenAndAdmin,updateProduct)
 .delete(verifyTokenAndAdmin,deleteProduct)
-.get(verifyTokenAndAdmin,getProduct)
+
+router
+.route('/find/:id')
+.get(getProduct)
 
 
 module.exports = router;
